@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
-import { Clock } from '../components/Clock'
+import { useUserContext } from '../context/user-context'
 export function UserOnboarding({ setUserDetails }) {
-  const [name, setName] = useState('')
-  const [city, setCity] = useState('')
+  const { userDetails, userDispatch } = useUserContext()
   const [next, setNext] = useState(null)
 
   const nameHandler = e => {
-    localStorage.setItem('name', name)
+    userDispatch({ type: 'STORE_NAME' })
     setNext(true)
   }
 
   const cityHandler = e => {
-    localStorage.setItem('city', city)
+    userDispatch({ type: 'STORE_CITY' })
     setUserDetails(true)
   }
   return (
@@ -29,15 +28,17 @@ export function UserOnboarding({ setUserDetails }) {
         <div>
           <div>
             <input
-              onChange={e => setCity(e.target.value)}
+              onChange={e =>
+                userDispatch({ type: 'SET_CITY', payload: e.target.value })
+              }
               type="text"
-              value={city}
+              value={userDetails.city}
               className="border-b-2 focus:outline-none text-2xl bg-transparent w-64 mt-4 text-center md:w-2/6 md:p-4 md:text-4xl"
             />
           </div>
           <button
             onClick={e => cityHandler(e)}
-            disabled={city ? false : true}
+            disabled={userDetails.city ? false : true}
             className="bg-slate-50 text-black w-32 h-9 rounded-full border-2 mt-8 md:w-48">
             Continue
           </button>
@@ -47,14 +48,16 @@ export function UserOnboarding({ setUserDetails }) {
           <div>
             <input
               type="text"
-              value={name}
-              onChange={e => setName(e.target.value)}
+              value={userDetails.name}
+              onChange={e =>
+                userDispatch({ type: 'SET_NAME', payload: e.target.value })
+              }
               className="border-b-2 focus:outline-none text-2xl bg-transparent w-64 mt-4 text-center md:w-2/6 md:p-4 md:text-4xl"
             />
           </div>
           <button
             onClick={e => nameHandler(e)}
-            disabled={name ? false : true}
+            disabled={userDetails.name ? false : true}
             className="bg-slate-50 text-black w-32 h-9 rounded-full border-2 mt-8 md:w-48">
             Next
           </button>

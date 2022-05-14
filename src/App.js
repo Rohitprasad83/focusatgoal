@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import logo from './logo.svg'
 import wallpapers from './db/images'
 import { UserOnboarding, Homepage } from './pages/'
 import './App.css'
@@ -9,9 +8,9 @@ function App() {
   const [userDetails, setUserDetails] = useState(null)
   const name = localStorage.getItem('name')
   const city = localStorage.getItem('city')
+
   useEffect(() => {
     setWallpaper(wallpapers[Math.floor(Math.random() * 10)])
-
     if (name && city) {
       setUserDetails(true)
     }
