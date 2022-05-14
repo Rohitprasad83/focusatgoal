@@ -36,10 +36,9 @@ export function Homepage({ name, city }) {
     else setQuote(quote)
   }, [])
   return (
-    <div className="flex flex-col justify-center h-full gap-y-8">
+    <div className="flex flex-col justify-center h-full">
       <Clock />
       <Weather />
-      <h2 className="text-3xl md:text-5xl">Good evening {name}</h2>
       {mainFocus ? (
         <div className="flex justify-center gap-4 text-2xl p-2 items-center">
           <div
