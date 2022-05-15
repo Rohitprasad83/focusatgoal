@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Clock, Weather } from '../components/'
+import { Clock, Weather, Todo } from '../components/'
 import quotes from '../db/quotes'
 export function Homepage({ name, city }) {
   const [mainFocus, setMainFocus] = useState(null)
@@ -80,6 +80,7 @@ export function Homepage({ name, city }) {
         </div>
       )}
       <div className="mt-56 px-2">"{quote}"</div>
+      <Todo />
     </div>
   )
 }
