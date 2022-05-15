@@ -46,7 +46,7 @@ export function Todo() {
     <div className="">
       {openTodo && (
         <div className=" flex flex-col items-start gap-2 bg-slate-800 w-max absolute bottom-12 right-4 p-2 rounded-md">
-          <p className="cursor-pointer">Today</p> <span></span>
+          <p className="cursor-pointer">All Todos</p> <span></span>
           <div className="overflow-y-auto max-h-96">
             {todos.map(todo => (
               <div
