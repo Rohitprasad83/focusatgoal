@@ -9,7 +9,6 @@ export function Weather() {
   useEffect(() => {
     ;(async () => {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
-      console.log(url)
       const response = await axios.get(url)
       setTemperature(Number(response.data.main.temp) - 273)
     })()
