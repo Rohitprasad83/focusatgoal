@@ -23,7 +23,7 @@ export function Clock() {
   useEffect(() => {
     const hours = time.substring(0, 2)
 
-    if (hours < 12) {
+    if (hours > 5 && hours < 12) {
       setGreet('Good Morning ')
     } else if (hours > 12 && hours < 16) {
       setGreet('Good Afternoon ')
