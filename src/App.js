@@ -10,7 +10,7 @@ function App() {
   const city = localStorage.getItem('city')
 
   useEffect(() => {
-    setWallpaper(wallpapers[Math.floor(Math.random() * 10)])
+    setWallpaper(wallpapers[Math.floor(Math.random() * 23)])
     if (name && city) {
       setUserDetails(true)
     }
@@ -22,11 +22,12 @@ function App() {
         backgroundImage: `url("${wallpaper}")`,
         backgroundSize: 'cover',
       }}>
+      {' '}
       {userDetails ? (
         <Homepage name={name} city={city} />
       ) : (
         <UserOnboarding setUserDetails={setUserDetails} />
-      )}
+      )}{' '}
     </div>
   )
 }
