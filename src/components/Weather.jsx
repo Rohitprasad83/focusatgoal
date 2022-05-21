@@ -3,9 +3,8 @@ import axios from 'axios'
 
 export function Weather() {
   const [temperature, setTemperature] = useState(0)
-  const apiKey = '79c0baacc3b6f750ac3ddfc13986a423'
+  const apiKey = process.env.REACT_APP_API_KEY
   const [location, setLocation] = useState('')
-
   const [lat, setLat] = useState('28.6139')
   const [long, setLong] = useState('77.2090')
 
