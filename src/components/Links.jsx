@@ -8,7 +8,7 @@ export function Links() {
   const [link, setLink] = useState('')
   const [links, setLinks] = useState([])
 
-  function createLinkHandler() {
+  const createLinkHandler = () => {
     const newLink = [...links, { id: uuidv4(), name: name, link: link }]
     setLinks(newLink)
     setCreateLink(false)
