@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Focus At Goal",
     "author": "Rohit Prasad",
-    "version": "1.0",
+    "version": "1.2",
     "description": "An extension app to keep you focused at your goal.",
     "chrome_url_overrides": {
         "newtab": "index.html"

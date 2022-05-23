@@ -43,15 +43,18 @@ export function Todo() {
   }, [])
 
   return (
-    <div className="">
+    <div>
       {openTodo && (
-        <div className=" flex flex-col items-start gap-2 bg-slate-800 w-max absolute bottom-12 right-4 p-2 rounded-md">
-          <p className="cursor-pointer">All Todos</p> <span></span>
-          <div className="overflow-y-auto max-h-96">
+        <div className=" flex flex-col items-start gap-2 bg-slate-800 w-64 absolute bottom-16 right-8 p-2 rounded-md">
+          <p className="cursor-pointer underline underline-offset-8">
+            All Todos
+          </p>
+          <span></span>
+          <div className="overflow-y-auto max-h-96 flex flex-col gap-2">
             {todos.map(todo => (
               <div
                 key={todo.id}
-                className="flex items-center w-40"
+                className="flex items-center gap-2 break-all w-56 text-left"
                 style={
                   todo.completed
                     ? { textDecoration: 'line-through' }
@@ -61,11 +64,10 @@ export function Todo() {
                   type="checkbox"
                   name={todo.title}
                   value={todo.title}
-                  id={todo.id}
+                  id={todo.title}
+                  onClick={() => updateTodo(todo.id)}
                 />
-                <label htmlFor={todo.id} onClick={() => updateTodo(todo.id)}>
-                  {todo.title}
-                </label>
+                <label htmlFor={todo.title}>{todo.title}</label>
                 <div className="ml-auto pr-2">
                   <i
                     className="fa-solid fa-trash cursor-pointer"
@@ -87,7 +89,7 @@ export function Todo() {
       )}
       <div
         onClick={() => setOpenTodo(!openTodo)}
-        className="cursor-pointer absolute bottom-1 right-24">
+        className="cursor-pointer text-xl absolute bottom-4 right-24 underline underline-offset-8">
         Todo
       </div>
     </div>

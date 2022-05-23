@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Clock, Weather, Todo } from '../components/'
+import { Clock, Weather, Todo, Links } from '../components/'
 import quotes from '../db/quotes'
 export function Homepage({ name, city }) {
   const [mainFocus, setMainFocus] = useState(null)
@@ -37,6 +37,7 @@ export function Homepage({ name, city }) {
   }, [])
   return (
     <div className="flex flex-col justify-center h-full">
+      <Links />
       <Clock />
       <Weather />
       {mainFocus ? (
